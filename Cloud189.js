@@ -280,7 +280,7 @@ const main = async () => {
 (async () => {
   try {
     if (env.tyys == "") {
-      logger.error("没有设置tyys环境变量")
+      logger.error("没有设置TYYS环境变量")
       return
     }
     await main();
