@@ -2,15 +2,15 @@ name: Action
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: 20 5 * * *
+    schedule:
+      - cron: 20 5 * * *
 
-  inputs:
-    ssh:
-      description: "ssh"
-      required: true
-      default: "false"
-      type: boolean
+    inputs:
+      ssh:
+        description: "ssh"
+        required: true
+        default: "false"
+        type: boolean
 
 jobs:
   build:
