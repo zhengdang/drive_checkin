@@ -281,7 +281,7 @@ const main = async () => {
   try {
     if (env.tyys == "") {
       logger.error("没有设置TYYS环境变量")
-      return
+      process.exit(0)
     }
     await main();
   } finally {
