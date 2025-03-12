@@ -7,10 +7,10 @@ on:
 
   inputs:
     ssh:
-    description: "ssh"
-    required: true
-    default: "false"
-    type: boolean
+      description: "ssh"
+      required: true
+      default: "false"
+      type: boolean
 
 jobs:
   build:
