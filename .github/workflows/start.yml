@@ -49,6 +49,6 @@ jobs:
 
       - name: 执行
         run: |
-          mkdir -p .env
+          mkdir -p .token
           npm install >/dev/null 2>&1
           npm start
