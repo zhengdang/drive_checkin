@@ -29,7 +29,7 @@ jobs:
         id: cache-primes
         uses: actions/cache@v4
         with:
-          path: tyys_cookies.json
+          path: .env
           key: ${{ runner.os }}-by_zhlhlf
 
       - name: 安装node.js环境
@@ -49,5 +49,6 @@ jobs:
 
       - name: 执行
         run: |
+          mkdir -p .env
           npm install >/dev/null 2>&1
           npm start

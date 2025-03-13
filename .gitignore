@@ -3,5 +3,6 @@ node_modules
 package-lock.json
 
 .env
+.token
 
 tyys_cookies.json
