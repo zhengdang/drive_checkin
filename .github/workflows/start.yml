@@ -29,7 +29,7 @@ jobs:
         id: cache-primes
         uses: actions/cache@v4
         with:
-          path: .env
+          path: .token
           key: ${{ runner.os }}-by_zhlhlf
 
       - name: 安装node.js环境
