@@ -28,7 +28,7 @@ const logger = log4js.getLogger();
 
 const mask = (s, start, end) =>{
   if(s == null) process.exit(0)
-  s.split("").fill("*", start, end).join("");
+  return s.split("").fill("*", start, end).join("");
 } 
 
 let timeout = 10000;
