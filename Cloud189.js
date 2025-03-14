@@ -26,7 +26,10 @@ const sleep = async (ms) => {
 
 const logger = log4js.getLogger();
 
-const mask = (s, start, end) => s.split("").fill("*", start, end).join("");
+const mask = (s, start, end) =>{
+  if(s == null) process.exit(0)
+  s.split("").fill("*", start, end).join("");
+} 
 
 let timeout = 10000;
 
@@ -171,7 +174,6 @@ const main = async () => {
 
     for (i = 1; i < accounts.length; i += 2) {
       const [userName, password] = accounts.slice(i, i + 2);
-      if (!userName || !password) continue;
 
       userNameInfo = mask(userName, 3, 7);
       let token = new FileTokenStore(`.token/${userName}.json`);
