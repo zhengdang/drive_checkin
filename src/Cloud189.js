@@ -112,6 +112,7 @@ const main = async () => {
       userNameInfo = mask(userName, 3, 7);
       let token = new FileTokenStore(`.token/${userName}.json`);
       try {
+        await sleep(2000)
         cloudClient = new CloudClient({
           username: userName,
           password,

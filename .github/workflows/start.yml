@@ -2,18 +2,16 @@ name: Action
 
 on:
   schedule:
-    - cron: 35 2 * * *
+    - cron: 20 5 * * *
   workflow_dispatch:
-    inputs:
-      ssh:
-        description: "ssh"
-        required: true
-        default: "false"
-        type: boolean
 
 jobs:
   build:
+    strategy:
+      matrix:
+        group: [group_1, group_2, group_3, group_4, group_5]
     runs-on: ubuntu-latest
+    environment: ${{ matrix.group }}
 
     steps:
       - name: 更改交换空间并link构建空间
@@ -29,7 +27,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .token
-          key: ${{ runner.os }}-by_zhlhlf
+          key: ${{ matrix.group }}-by_zhlhlf
 
       - name: 安装node.js环境
         uses: actions/setup-node@main
@@ -40,11 +38,6 @@ jobs:
         uses: zhlhlf/Secrets_To_Env@master
         with:
           secrets_json: ${{ toJSON(secrets) }}
-
-      - name: 高级操作
-        if: github.event.inputs.ssh == 'true'
-        run: |
-          curl -SL http://raw.github.com/zhlhlf/text/main/ssh.sh | sudo bash
 
       - name: 执行
         run: |
