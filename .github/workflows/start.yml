@@ -2,14 +2,14 @@ name: Action
 
 on:
   schedule:
-    - cron: 20 5 * * *
+    - cron: 01 16 * * *
   workflow_dispatch:
 
 jobs:
   build:
     strategy:
       matrix:
-        group: [group_1, group_2, group_3, group_4, group_5]
+        group: [group_1, group_2, group_3, group_4, group_5, group_6, group_7]
     runs-on: ubuntu-latest
     environment: ${{ matrix.group }}
 
